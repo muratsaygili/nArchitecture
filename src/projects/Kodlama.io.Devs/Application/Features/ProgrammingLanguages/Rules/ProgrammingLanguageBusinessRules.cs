@@ -32,13 +32,14 @@ namespace Application.Features.ProgrammingLanguages.Rules
         public async Task ProgrammingLanguageCannotBeDuplicatedWhenUpdating(int id,string name)
         {
             //we are looking for another entity with given name and not equal with given id, entity name can be exactly old name
-            var data = await _programmingLanguageRepository.GetAsync(x =>x.Id!=id && x.Name == name);
-            if (data != null) throw new BusinessException("Programming language cannot be duplicated when inserting");
+            var data = await _programmingLanguageRepository.GetListAsync(x => x.Id != id && x.Name == name, enableTracking: false);
+            if (data.Items.Any()) throw new BusinessException("Programming language cannot be duplicated when inserting");
         }
         public async Task ProgrammingLanguageShouldExistWithId(int id)
         {
-            var data = await _programmingLanguageRepository.GetAsync(x => x.Id == id);
-            if (data == null) throw new BusinessException("Programming language doesnt exist with id "+id);
+            var data = await _programmingLanguageRepository.GetListAsync(x => x.Id == id, enableTracking: false);
+            
+            if (!data.Items.Any()) throw new BusinessException("Programming language doesnt exist with id "+id);
         }
     }
 }
