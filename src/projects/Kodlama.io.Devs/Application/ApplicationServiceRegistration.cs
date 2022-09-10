@@ -9,6 +9,10 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Application.Features.ProgrammingLanguages.Rules;
+using Core.Application.Pipelines.Authorization;
+using Application.Features.GithubSocials.Rules;
+using Application.Features.Technologies.Rules;
+using Application.Features.Users.Rules;
 
 namespace Application
 {
@@ -21,9 +25,12 @@ namespace Application
             services.AddMediatR(Assembly.GetExecutingAssembly());
 
             services.AddScoped<ProgrammingLanguageBusinessRules>();
-
+            services.AddScoped<TechnologyBusinessRules>();
+            services.AddScoped<UserBusinessRules>();
+            services.AddScoped<GithubSocialBusinessRules>();
+            
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
-            //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(AuthorizationBehavior<,>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(AuthorizationBehavior<,>));
             //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CachingBehavior<,>));
             //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CacheRemovingBehavior<,>));
             //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));

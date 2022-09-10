@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Persistance.Repositories;
 using Persistence.Contexts;
 using Persistence.Repositories;
 using System;
@@ -20,7 +21,10 @@ namespace Persistence
                                                      options.UseSqlServer(
                                                          configuration.GetConnectionString("AdvancedCampConnectionString")));
             services.AddScoped<IProgrammingLanguageRepository, ProgrammingLanguageRepository>();
-
+            services.AddScoped<ITechnologyRepository, TechnologyRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IGithubSocialRepository, GithubSocialRepository>();
+            
             return services;
         }
     }

@@ -11,15 +11,18 @@ namespace Domain.Entities
     {
         public string Name { get; set; }
 
+        public virtual ICollection<Technology> Technologies { get; set; }
+
         public ProgrammingLanguage()
         {
-            
+            Technologies = new List<Technology>();
         }
 
         public ProgrammingLanguage(int id,string name):this()
         {
             Id = id;
             Name = name;
+            Technologies = new List<Technology>();
         }
     }
 }
