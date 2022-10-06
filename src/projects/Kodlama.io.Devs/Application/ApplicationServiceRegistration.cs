@@ -12,6 +12,7 @@ using Application.Features.Auths.Rules;
 using Application.Features.ProgrammingLanguages.Rules;
 using Core.Application.Pipelines.Authorization;
 using Application.Features.GithubSocials.Rules;
+using Application.Features.OperationClaims.Rules;
 using Application.Features.Technologies.Rules;
 using Application.Services.AuthService;
 using Application.Features.UserOperationClaims.Rules;
@@ -31,6 +32,7 @@ namespace Application
             services.AddScoped<GithubSocialBusinessRules>();
             services.AddScoped<AuthBusinessRules>();
             services.AddScoped<UserOperationClaimBusinessRules>();
+            services.AddScoped<OperationClaimBusinessRules>();
 
             
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
