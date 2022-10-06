@@ -1,15 +1,10 @@
 ﻿using Application.Features.GithubSocials.Dto;
 using Application.Features.GithubSocials.Rules;
-using Application.Features.Users.Rules;
 using Application.Services.Repositories;
 using AutoMapper;
 using Domain.Entities;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Application.Features.Auths.Rules;
 
 namespace Application.Features.GithubSocials.Commands.CreateGithubSocial
 {
@@ -23,8 +18,8 @@ namespace Application.Features.GithubSocials.Commands.CreateGithubSocial
             private readonly IMapper _mapper;
             private readonly IGithubSocialRepository _gitHubSocialRepository;
             private readonly GithubSocialBusinessRules _githubSocialBusinessRules;
-            private readonly UserBusinessRules _userBusinessRules;
-            public CreateGithubSocialCommandHandler(UserBusinessRules userBusinessRules,IMapper mapper, IGithubSocialRepository gitHubSocialRepository, GithubSocialBusinessRules githubSocialBusinessRules)
+            private readonly AuthBusinessRules _userBusinessRules;
+            public CreateGithubSocialCommandHandler(AuthBusinessRules userBusinessRules,IMapper mapper, IGithubSocialRepository gitHubSocialRepository, GithubSocialBusinessRules githubSocialBusinessRules)
             {
                 _mapper = mapper;
                 _gitHubSocialRepository = gitHubSocialRepository;

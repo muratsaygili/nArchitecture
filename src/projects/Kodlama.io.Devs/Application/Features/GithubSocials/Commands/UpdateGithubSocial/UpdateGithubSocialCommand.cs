@@ -1,6 +1,6 @@
-﻿using Application.Features.GithubSocials.Dto;
+﻿using Application.Features.Auths.Rules;
+using Application.Features.GithubSocials.Dto;
 using Application.Features.GithubSocials.Rules;
-using Application.Features.Users.Rules;
 using Application.Services.Repositories;
 using AutoMapper;
 using Domain.Entities;
@@ -17,10 +17,10 @@ namespace Application.Features.GithubSocials.Commands.UpdateGithubSocial
         public class UpdateGithubSocialCommandHandler : IRequestHandler<UpdateGithubSocialCommand, UpdatedGithubSocialDto>
         {
             private readonly IGithubSocialRepository _socialRepository;
-            private readonly UserBusinessRules _userBusinessRules;
+            private readonly AuthBusinessRules _userBusinessRules;
             private readonly IMapper _mapper;
             private readonly GithubSocialBusinessRules _githubSocialBusinessRules;
-            public UpdateGithubSocialCommandHandler(UserBusinessRules userBusinessRules, IGithubSocialRepository socialRepository, IMapper mapper, GithubSocialBusinessRules githubSocialBusinessRules)
+            public UpdateGithubSocialCommandHandler(AuthBusinessRules userBusinessRules, IGithubSocialRepository socialRepository, IMapper mapper, GithubSocialBusinessRules githubSocialBusinessRules)
             {
                 _socialRepository = socialRepository;   
                 _mapper = mapper;

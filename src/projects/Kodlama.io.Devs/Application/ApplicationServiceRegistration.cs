@@ -13,7 +13,6 @@ using Application.Features.ProgrammingLanguages.Rules;
 using Core.Application.Pipelines.Authorization;
 using Application.Features.GithubSocials.Rules;
 using Application.Features.Technologies.Rules;
-using Application.Features.Users.Rules;
 using Application.Services.AuthService;
 using Application.Features.UserOperationClaims.Rules;
 
@@ -29,7 +28,6 @@ namespace Application
 
             services.AddScoped<ProgrammingLanguageBusinessRules>();
             services.AddScoped<TechnologyBusinessRules>();
-            services.AddScoped<UserBusinessRules>();
             services.AddScoped<GithubSocialBusinessRules>();
             services.AddScoped<AuthBusinessRules>();
             services.AddScoped<UserOperationClaimBusinessRules>();
