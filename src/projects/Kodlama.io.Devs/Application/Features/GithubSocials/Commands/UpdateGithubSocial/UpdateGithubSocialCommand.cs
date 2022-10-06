@@ -5,13 +5,8 @@ using Application.Services.Repositories;
 using AutoMapper;
 using Domain.Entities;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Application.Features.GithubSocials.Commands.CreateGithubSocial
+namespace Application.Features.GithubSocials.Commands.UpdateGithubSocial
 {
     public class UpdateGithubSocialCommand : IRequest<UpdatedGithubSocialDto>
     {

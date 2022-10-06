@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
+using Application.Features.Auths.Helpers;
 using Core.Security.Entities;
 using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
@@ -78,12 +79,12 @@ namespace Persistence.Contexts
 
             OperationClaim[] operationClaimEntitySeeds =
             {
-                new(1, "Admin"),
-                new(2, "Moderator"),
-                new(3, "User"),
+                new(1, RoleTypes.Admin.ToString()),
+                new(2, RoleTypes.Moderator.ToString()),
+                new(3, RoleTypes.User.ToString()),
                 
             };
-            
+            modelBuilder.Entity<OperationClaim>().HasData(operationClaimEntitySeeds);
         }
     }
 }

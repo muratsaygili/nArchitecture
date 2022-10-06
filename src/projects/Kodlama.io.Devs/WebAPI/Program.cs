@@ -58,7 +58,7 @@ builder.Services.AddSwaggerGen(opt =>
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(x => x.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPI", Version = "v1", Contact = new OpenApiContact() { Name = "Murat Saygılı", Email = "muratsaygili1@gmail.com" } }));
+//builder.Services.AddSwaggerGen(x => x.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPI", Version = "v1", Contact = new OpenApiContact() { Name = "Murat Saygılı", Email = "muratsaygili1@gmail.com" } }));
 
 var app = builder.Build();
 
@@ -73,7 +73,7 @@ if (app.Environment.IsProduction())
     app.ConfigureCustomExceptionMiddleware();
 
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

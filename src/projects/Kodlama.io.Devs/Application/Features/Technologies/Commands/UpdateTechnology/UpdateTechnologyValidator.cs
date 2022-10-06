@@ -1,12 +1,6 @@
 ﻿using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Application.Features.Technologies.Commands.UpdateTechnology;
 
-namespace Application.Features.Technologies.Commands.CreateTechnology
+namespace Application.Features.Technologies.Commands.UpdateTechnology
 {
     public class UpdateTechnologyCommandValidator : AbstractValidator<UpdateTechnologyCommand>
     {

@@ -1,5 +1,6 @@
 ﻿using Application.Features.GithubSocials.Commands.CreateGithubSocial;
 using Application.Features.GithubSocials.Commands.DeleteGithubSocial;
+using Application.Features.GithubSocials.Commands.UpdateGithubSocial;
 using Application.Features.GithubSocials.Dto;
 using Microsoft.AspNetCore.Mvc;
 

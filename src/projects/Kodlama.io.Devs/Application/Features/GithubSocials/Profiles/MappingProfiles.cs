@@ -1,11 +1,7 @@
 ﻿using Application.Features.GithubSocials.Commands.CreateGithubSocial;
+using Application.Features.GithubSocials.Commands.UpdateGithubSocial;
 using Application.Features.GithubSocials.Dto;
-using Application.Features.ProgrammingLanguages.Commands.CreateProgrammingLanguage;
-using Application.Features.ProgrammingLanguages.Dtos;
-using Application.Features.ProgrammingLanguages.Models;
-using Application.Features.Technologies.Dtos;
 using AutoMapper;
-using Core.Persistence.Paging;
 using Domain.Entities;
 
 namespace Application.Features.GithubSocials.Profiles

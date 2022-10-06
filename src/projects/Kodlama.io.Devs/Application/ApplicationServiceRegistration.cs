@@ -15,6 +15,7 @@ using Application.Features.GithubSocials.Rules;
 using Application.Features.Technologies.Rules;
 using Application.Features.Users.Rules;
 using Application.Services.AuthService;
+using Application.Features.UserOperationClaims.Rules;
 
 namespace Application
 {
@@ -31,6 +32,8 @@ namespace Application
             services.AddScoped<UserBusinessRules>();
             services.AddScoped<GithubSocialBusinessRules>();
             services.AddScoped<AuthBusinessRules>();
+            services.AddScoped<UserOperationClaimBusinessRules>();
+
             
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(AuthorizationBehavior<,>));

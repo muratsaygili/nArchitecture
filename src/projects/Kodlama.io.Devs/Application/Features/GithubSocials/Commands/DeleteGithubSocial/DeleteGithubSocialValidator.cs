@@ -1,8 +1,6 @@
-﻿
-using Application.Features.GithubSocials.Commands.DeleteGithubSocial;
-using FluentValidation;
+﻿using FluentValidation;
 
-namespace Application.Features.GithubSocials.Commands.UpdateGithubSocial
+namespace Application.Features.GithubSocials.Commands.DeleteGithubSocial
 {
     public class DeleteGithubSocialValidator : AbstractValidator<DeleteGithubSocialCommand>
     {
