@@ -8,11 +8,13 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using Application.Features.Auths.Rules;
 using Application.Features.ProgrammingLanguages.Rules;
 using Core.Application.Pipelines.Authorization;
 using Application.Features.GithubSocials.Rules;
 using Application.Features.Technologies.Rules;
 using Application.Features.Users.Rules;
+using Application.Services.AuthService;
 
 namespace Application
 {
@@ -28,6 +30,7 @@ namespace Application
             services.AddScoped<TechnologyBusinessRules>();
             services.AddScoped<UserBusinessRules>();
             services.AddScoped<GithubSocialBusinessRules>();
+            services.AddScoped<AuthBusinessRules>();
             
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(AuthorizationBehavior<,>));
@@ -36,6 +39,8 @@ namespace Application
             //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));
 
+            services.AddScoped<IAuthService, AuthManager>();
+            
             return services;
 
         }

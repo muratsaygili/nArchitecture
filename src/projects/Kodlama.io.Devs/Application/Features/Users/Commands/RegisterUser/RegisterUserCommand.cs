@@ -14,6 +14,7 @@ namespace Application.Features.Users.Commands.RegisterUser
         public string Password { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string IpAddress { get; set; }
 
         public class RegisterUserCommandHandler : IRequestHandler<RegisterUserCommand, RegisterUserDto>
         {
