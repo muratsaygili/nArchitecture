@@ -1,4 +1,6 @@
-﻿using Application.Features.Auths.Commands.Register;
+﻿using Application.Features.Auths.Commands.Login;
+using Application.Features.Auths.Commands.Register;
+using Application.Features.Auths.Dtos;
 using Application.Features.Users.Commands.LoginUser;
 using Application.Features.Users.Commands.RegisterUser;
 using Application.Features.Users.Dtos;
@@ -13,9 +15,15 @@ namespace WebAPI.Controllers
     public class AuthController : BaseController
     {
         [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] LoginUserCommand loginUserCommand)
+        public async Task<IActionResult> Login([FromBody] UserForLoginDto userForLoginDto)
         {
-            LoginUserDto result = await Mediator.Send(loginUserCommand);
+            var command = new LoginCommand()
+            {
+                Email = userForLoginDto.Email,
+                Password = userForLoginDto.Password,
+                AuthenticatorCode = userForLoginDto.AuthenticatorCode
+            };
+            LoggedInDto result = await Mediator.Send(command);
             return Ok(result);
         }
 
